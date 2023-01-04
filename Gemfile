@@ -34,9 +34,28 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Sets up javascript for bootstrap styling
+gem 'bootstrap'
+gem 'jquery-rails'
+
+# OAuth 2.0 for Strava
+gem "omniauth-strava"
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  gem 'capybara'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'faraday'
+  gem 'figaro'
+  gem 'launchy'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers'
+  gem 'simplecov'
+  gem 'vcr'
+  gem 'webmock'
 end
 
 group :development do
