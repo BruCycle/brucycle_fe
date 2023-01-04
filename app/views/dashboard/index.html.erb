@@ -1,0 +1,9 @@
+<center><h1> BrüCycle </h1><center>
+<center><h5> Burn it to earn it </h5><center><br>
+
+<center><h6> Welcome, <%=@user.firstname%> </h6><center>
+
+<% if @user.photo_url%>
+  <%=image_tag(@user.photo_url)%>
+<%end%>
+
