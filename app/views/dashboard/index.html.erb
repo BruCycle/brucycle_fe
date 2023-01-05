@@ -1,8 +1,18 @@
-<center><h1> BrüCycle </h1><center>
-<center><h5> Burn it to earn it </h5><center><br>
-
-<center><h6> Welcome, <%=@user.firstname%> </h6><center>
-
+<!DOCTYPE html>
+<html>
+<body 
+    style="background-image: url('black_bike.jpg');
+    <%# style="background-image: url('taproom_outside.jpeg'); */ %>
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;">
+      style=background-color:#2B2F3C;">
+<br><br>
+<center><h1 style="color:white"> BrüCycle </h1><center>
+<center><i><p style="color:white",> Burn it to earn it.</p></i><center>
+<br><br>
+<center><h8 style="color:white"> Welcome,  <%=@user.firstname%></h8><<center>
+<br>
 <% if @user.photo_url%>
   <%=image_tag(@user.photo_url)%>
 <%end%>
