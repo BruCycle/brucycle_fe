@@ -1,4 +1,4 @@
-class User
+class UserStats
   attr_reader :username, :beers_drunk, :brubank, :tot_gas_money_saved, :tot_calories_burned, :tot_miles_biked
   
   def initialize(data)
