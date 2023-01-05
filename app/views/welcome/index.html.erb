@@ -1,0 +1,6 @@
+<center><h1> BrüCycle </h1><center>
+<center><h6> Burn it to earn it </h6><center>
+
+<center><%= link_to "Login with Strava", "http://www.strava.com/oauth/authorize?client_id=#{ENV["strava_client_id"]}&response_type=code&redirect_uri=#{@base_url}/exchange_token&approval_prompt=force&scope=read,activity:read_all", method: :get, class: "btn btn-outline-warning"%><center>
+
+
