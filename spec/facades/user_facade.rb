@@ -10,7 +10,7 @@ RSpec.describe UserFacade do
 
   it 'creates a User object based on lifetime stats' do 
     user = UserFacade.user(@user_id)
-
+     
     expect(user).to be_a UserStats
 
     expect(user.beers_drunk).to be_a Integer

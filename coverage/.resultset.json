@@ -7,46 +7,6 @@
           null
         ]
       },
-      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/facades/user_facade.rb": {
-        "lines": [
-          null,
-          null,
-          1,
-          1,
-          1,
-          null,
-          1,
-          null,
-          null
-        ]
-      },
-      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/services/brucycle_service.rb": {
-        "lines": [
-          1,
-          1,
-          1,
-          1,
-          null,
-          null,
-          1,
-          1,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null
-        ]
-      },
       "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/poros/user_stats.rb": {
         "lines": [
           1,
@@ -64,6 +24,6 @@
         ]
       }
     },
-    "timestamp": 1672948631
+    "timestamp": 1672948919
   }
 }
