@@ -1,0 +1,46 @@
+{
+  "RSpec": {
+    "coverage": {
+      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/helpers/application_helper.rb": {
+        "lines": [
+          1,
+          null
+        ]
+      },
+      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/models/user.rb": {
+        "lines": [
+          1,
+          null,
+          null
+        ]
+      },
+      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/models/application_record.rb": {
+        "lines": [
+          1,
+          1,
+          null
+        ]
+      },
+      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/controllers/application_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          1,
+          0,
+          null,
+          null
+        ]
+      },
+      "/Users/sean/turing/m3/projects/brucycle/brucycle_fe/app/controllers/dashboard_controller.rb": {
+        "lines": [
+          1,
+          1,
+          null,
+          null
+        ]
+      }
+    },
+    "timestamp": 1672942003
+  }
+}
