@@ -20,8 +20,8 @@ RSpec.describe 'the User Dashboard page' do
       expect(page).to have_content('Beers Consumed')
       expect(page).to have_content('Distance Biked')
 
-      expect(page).to have_button('I Drank a Beer')
-      expect(page).to have_content('Brübank')
+      expect(page).to have_link('I Drank a Beer')
+      expect(page).to have_content('BrüBank')
     end
   end
 

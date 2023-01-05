@@ -1,9 +1,23 @@
-<center><h1> BrüCycle </h1><center>
-<center><h5> Burn it to earn it </h5><center><br>
+<center><h1> BrüCycle </h1></center>
+<center><h5> Burn it to earn it </h5></center><br>
 
-<center><h6> Welcome, <%=current_user.firstname%> </h6><center>
+<center><h6> Welcome, <%=current_user.firstname%> </h6></center>
 
 <% if current_user.photo_url%>
-  <%=image_tag(current_user.photo_url)%>
+  <center><%=image_tag(current_user.photo_url)%></center>
 <%end%>
+<div id="brubank">
+<center><h5>BrüBank:</h5></center>
+<center><%= link_to "I Drank a Beer", "/dashboard", method: :get, class: "btn btn-outline-warning"%></center>
+
+</div>
+
+<div id="lifetime-stats">
+<center><h5>Lifetime Stats</h5>
+<p>Gas Money Saved:</p>
+<p>Calories Burned:</p>
+<p>Beers Consumed:</p>
+<p>Distance Biked:</p>
+</center>
+</div>
 
