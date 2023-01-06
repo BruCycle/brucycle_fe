@@ -10,16 +10,15 @@ RSpec.describe 'the User Dashboard page' do
     before(:each) do
       @json = File.read('spec/fixtures/user_data.json')
       @user_id = 62
-      stub_request(:get, "http://localhost:3000/api/v1/users?uid=#{@user_id}")
+      stub_request(:get, 'http://localhost:3000/api/v1/user?')
         .to_return(status: 200, body: @json)
+      @user = create(:user)
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
     end
     it 'has lifetime stats and athlete data' do
-      user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
-
       visit '/dashboard'
 
-      expect(page).to have_content("Welcome, #{user.firstname}")
+      expect(page).to have_content("Welcome, #{@user.firstname}")
       expect(page).to have_content('Lifetime Stats')
       expect(page).to have_content('Gas Money Saved: $7.50')
       expect(page).to have_content('Calories Burned: 7.5')
@@ -28,6 +27,28 @@ RSpec.describe 'the User Dashboard page' do
 
       expect(page).to have_link('I Drank a Beer')
       expect(page).to have_content('BrüBank: 866.04')
+    end
+
+    it 'redirects user to dashboard after consuming and clicking drink_beer button' do
+      visit '/dashboard'
+      stub_request(:patch, 'http://localhost:3000/api/v1/user?drank=beer')
+        .to_return(status: 204)
+
+      click_link 'I Drank a Beer'
+
+      expect(current_path).to eq('/dashboard')
+    end
+
+    describe 'as a user i can edit my username' do
+      it 'has a button to edit username' do
+        visit '/dashboard'
+
+        expect(page).to have_link('Edit Username')
+
+        click_link "Edit Username"
+
+        expect(current_path).to eq("/user/edit")
+      end
     end
   end
 

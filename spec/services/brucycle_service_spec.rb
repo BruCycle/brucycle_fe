@@ -7,10 +7,10 @@ RSpec.describe BrucycleService do
   end 
 
   it 'gets user data' do 
-    stub_request(:get, "http://localhost:3000/api/v1/users?uid=#{@user_id}")
+    stub_request(:get, "http://localhost:3000/api/v1/user?")
       .to_return(status: 200, body: @json)
 
-    response = BrucycleService.get_user(@user_id)
+    response = BrucycleService.get_user(@user_id, "Foken")
     data = response[:data]
     attributes = data[:attributes]
     

@@ -13,13 +13,19 @@
 <center><i><p style= "color:white",> Burn it to earn it.</p></i><center>
 <br><br>
 <center><h8 style= "color:white"> Welcome,  <%= current_user.firstname%></h8><<center>
+<p> <%= link_to "Edit Username", "/user/edit" %> </p>
 <br>
 <% if current_user.photo_url%>
   <%= image_tag(current_user.photo_url)%>
 <%end%>
+
+<% if current_user.username %>
+  <p><%= current_user.username %></p>
+<% end %>
+<br>
 <div id= "brubank">
 <center><h5>BrüBank: <%= @user_stats.brubank %></h5></center>
-<center><%= link_to "I Drank a Beer", "/dashboard", method: :get, class: "btn btn-outline-warning"%></center>
+<center><%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-outline-warning"%></center>
 
 </div>
 
