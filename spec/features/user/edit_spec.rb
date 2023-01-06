@@ -14,13 +14,13 @@ RSpec.describe 'User-Edit' do
     it 'user can edit their username' do
       visit '/user/edit'
 
-      fill_in("Username", with: 'Bail Organa')
+      fill_in("Username", with: 'Jasper')
       click_button 'Update'
 
-      expect(current_path).to eq('/user/edit')
+      expect(current_path).to eq('/dashboard')
 
       user = User.find(@user.id)
-      expect(user.username).to eq(@user.username)
+      expect(user.username).to eq('Jasper')
     end
   end
 end
