@@ -21,4 +21,12 @@ class SessionsController < ApplicationController
     session[:token] = data[:refresh_token]
     redirect_to '/dashboard'
   end
+
+  def destroy
+    session.delete(:user_id)
+    session.delete(:token)
+    flash[:alert] = 'You have been successfully logged out'
+
+    redirect_to '/'
+  end
 end

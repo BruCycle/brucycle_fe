@@ -9,12 +9,15 @@ RSpec.describe 'the User Dashboard page' do
   describe 'page has attributes' do
     before(:each) do
       @json = File.read('spec/fixtures/user_data.json')
-      @user_id = 62
+      @user = create(:user)
+
       stub_request(:get, 'http://localhost:3000/api/v1/user?')
         .to_return(status: 200, body: @json)
-      @user = create(:user)
-      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(@user)
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user)
+        .and_return(@user)
     end
+
     it 'has lifetime stats and athlete data' do
       visit '/dashboard'
 
@@ -48,6 +51,23 @@ RSpec.describe 'the User Dashboard page' do
         click_link "Edit Username"
 
         expect(current_path).to eq("/user/edit")
+      end
+    end
+
+    describe 'as a user i can logout' do 
+      it 'has a button to logout' do
+        visit '/dashboard'
+
+        session = { user_id: @user.id, token: '1234567890'}
+        allow_any_instance_of(ApplicationController).to receive(:session)
+          .and_return(session)
+
+        expect(page).to have_link('Logout')
+
+        click_link 'Logout'
+
+        expect(current_path).to eq('/')
+        expect(page).to have_content('You have been successfully logged out')
       end
     end
   end
