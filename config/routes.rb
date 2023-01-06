@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   get "/exchange_token", to: 'sessions#create'
   get "/dashboard", to: "dashboard#index"
   patch "/dashboard", to: "dashboard#update"
+  get "/user/edit", to: "user#edit"
+  patch "/user/edit", to: "user#edit"
 end
