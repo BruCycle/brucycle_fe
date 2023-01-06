@@ -1,7 +1,14 @@
 <br><br>
 
-<center>
-  <%= link_to "Login with Strava", "http://www.strava.com/oauth/authorize?client_id=#{ENV["strava_client_id"]}&response_type=code&redirect_uri=#{@base_url}/exchange_token&approval_prompt=force&scope=read,activity:read_all", method: :get, class: "btn btn-outline-warning"%>
-</center>
+<% if current_user %>
+  <center>
+    <%= link_to "Go to Dashboard", "/dashboard", method: :get, class: "btn btn-outline-warning"%>
+    <%= link_to "Logout", "/logout", method: :delete, class: "btn btn-outline-warning"%>
+  </center>
+<% else %>
+  <center>
+    <%= link_to "Login with Strava", "http://www.strava.com/oauth/authorize?client_id=#{ENV["strava_client_id"]}&response_type=code&redirect_uri=#{@base_url}/exchange_token&approval_prompt=force&scope=read,activity:read_all", method: :get, class: "btn btn-outline-warning"%>
+  </center>
+<% end %>
 
 <br><br>

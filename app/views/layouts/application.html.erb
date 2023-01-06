@@ -15,8 +15,15 @@
   background-attachment: fixed;
   background-size: cover;
   background-color:#2B2F3C;">
+  
+  <% flash.each do |type, msg| %>
+    <div class="alert alert-warning" role="alert" style='margin: 10px 150px 0px 150px; padding: 5px 5px'>
+      <center><strong><%= msg %></strong></center>
+    </div>   
+  <% end %>
 
   <br><br>
+
   <center><h1 style= "color:white"> BrüCycle </h1><center>
   <center><i><p style= "color:white",> Burn it to earn it.</p></i><center>
 
