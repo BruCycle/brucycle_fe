@@ -2,33 +2,33 @@
 <!DOCTYPE html>
 <html>
 <body 
-    style="background-image: url('black_bike.jpg');
+    style= "background-image: url('black_bike.jpg');
     <%# style="background-image: url('taproom_outside.jpeg'); */ %>
       background-repeat: no-repeat;
       background-attachment: fixed;
       background-size: cover;">
       style=background-color:#2B2F3C;">
 <br><br>
-<center><h1 style="color:white"> BrüCycle </h1><center>
-<center><i><p style="color:white",> Burn it to earn it.</p></i><center>
+<center><h1 style= "color:white"> BrüCycle </h1><center>
+<center><i><p style= "color:white",> Burn it to earn it.</p></i><center>
 <br><br>
-<center><h8 style="color:white"> Welcome,  <%=@user.firstname%></h8><<center>
+<center><h8 style= "color:white"> Welcome,  <%= current_user.firstname%></h8><<center>
 <br>
-<% if @user.photo_url%>
-  <%=image_tag(@user.photo_url)%>
+<% if current_user.photo_url%>
+  <%= image_tag(current_user.photo_url)%>
 <%end%>
-<div id="brubank">
-<center><h5>BrüBank:</h5></center>
+<div id= "brubank">
+<center><h5>BrüBank: <%= @user_stats.brubank %></h5></center>
 <center><%= link_to "I Drank a Beer", "/dashboard", method: :get, class: "btn btn-outline-warning"%></center>
 
 </div>
 
 <div id="lifetime-stats">
 <center><h5>Lifetime Stats</h5>
-<p>Gas Money Saved:</p>
-<p>Calories Burned:</p>
-<p>Beers Consumed:</p>
-<p>Distance Biked:</p>
+<p>Gas Money Saved: $<%= sprintf("%.2f", @user_stats.tot_gas_money_saved) %></p>
+<p>Calories Burned: <%= @user_stats.tot_calories_burned %></p>
+<p>Beers Consumed: <%= @user_stats.beers_drunk %></p>
+<p>Distance Biked: <%= @user_stats.tot_miles_biked %></p>
 </center>
 </div>
 

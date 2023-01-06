@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :user do
-    strava_id { Faker::Number.unique.number(digits: 3) }
+    strava_id { 62 }
     username { Faker::Movies::StarWars.unique.character }
     firstname { Faker::Name.unique.first_name  }
     lastname { Faker::Name.last_name }
