@@ -1,6 +1,10 @@
 class DashboardController < ApplicationController
   def index
-    @user_stats = UserFacade.user(current_user.strava_id)
-    
+    @user_stats = UserFacade.user(current_user.strava_id, session[:token])
+  end
+
+  def update
+    BrucycleService.drink_beer(current_user.strava_id)
+    redirect_to '/dashboard'
   end
 end

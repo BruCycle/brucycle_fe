@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   root "welcome#index"
   get "/exchange_token", to: 'sessions#create'
   get "/dashboard", to: "dashboard#index"
+  patch "/dashboard", to: "dashboard#update"
 end
