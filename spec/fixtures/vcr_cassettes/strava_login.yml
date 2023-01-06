@@ -1,0 +1,68 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://www.strava.com/api/v3/oauth/token?client_id=99711&client_secret=7093f99e802655c47be7f19d49efce5273b4f60c&code=5b7c1386178631883f0bf28b6dca936b804b6df1&grant_type=authorization_code
+    body:
+      encoding: UTF-8
+      string: ''
+    headers:
+      Accept:
+      - application/json
+      User-Agent:
+      - Faraday v2.7.2
+      Content-Length:
+      - '0'
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Content-Type:
+      - application/json; charset=utf-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Date:
+      - Thu, 05 Jan 2023 17:24:59 GMT
+      Via:
+      - 1.1 linkerd, 1.1 linkerd, 1.1 77cfd797d789c3b8bc1b8f2f8a42a9c6.cloudfront.net
+        (CloudFront)
+      Etag:
+      - W/"bd9c905e994e4b5735eae64a3b213417"
+      Vary:
+      - Origin
+      Server:
+      - nginx/1.21.3
+      Status:
+      - 200 OK
+      X-Request-Id:
+      - 3d3f94ff-191d-4c5e-9dce-7c4d5066e2d6
+      Cache-Control:
+      - max-age=0, private, must-revalidate
+      Referrer-Policy:
+      - strict-origin-when-cross-origin
+      X-Frame-Options:
+      - DENY
+      X-Xss-Protection:
+      - 1; mode=block
+      X-Download-Options:
+      - noopen
+      X-Content-Type-Options:
+      - nosniff
+      X-Permitted-Cross-Domain-Policies:
+      - none
+      X-Cache:
+      - Miss from cloudfront
+      X-Amz-Cf-Pop:
+      - DEN52-P2
+      X-Amz-Cf-Id:
+      - x34EO7gjUcOrhYjDK7NYH9rxtX3ctXt7kL1b1JxE6Sy3FNnJvnv0tg==
+    body:
+      encoding: ASCII-8BIT
+      string: '{"token_type":"Bearer","expires_at":1672957630,"expires_in":18131,"refresh_token":"60d262e140290ee10b44be20a87138c5aaa467ee","access_token":"ad0080f05a509a25b314050aaaa983dffac22b4e","athlete":{"id":112175675,"username":"sean_culliton","resource_state":2,"firstname":"Sean","lastname":"Culliton","bio":null,"city":null,"state":null,"country":null,"sex":"M","premium":false,"summit":false,"created_at":"2023-01-03T03:03:45Z","updated_at":"2023-01-04T21:21:10Z","badge_type_id":0,"weight":null,"profile_medium":"https://dgalywyr863hv.cloudfront.net/pictures/athletes/112175675/26236812/1/medium.jpg","profile":"https://dgalywyr863hv.cloudfront.net/pictures/athletes/112175675/26236812/1/large.jpg","friend":null,"follower":null}}'
+  recorded_at: Thu, 05 Jan 2023 17:24:59 GMT
+recorded_with: VCR 6.1.0

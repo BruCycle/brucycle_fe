@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <body 
@@ -16,4 +17,18 @@
 <% if @user.photo_url%>
   <%=image_tag(@user.photo_url)%>
 <%end%>
+<div id="brubank">
+<center><h5>BrüBank:</h5></center>
+<center><%= link_to "I Drank a Beer", "/dashboard", method: :get, class: "btn btn-outline-warning"%></center>
+
+</div>
+
+<div id="lifetime-stats">
+<center><h5>Lifetime Stats</h5>
+<p>Gas Money Saved:</p>
+<p>Calories Burned:</p>
+<p>Beers Consumed:</p>
+<p>Distance Biked:</p>
+</center>
+</div>
 
