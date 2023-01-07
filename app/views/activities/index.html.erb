@@ -13,22 +13,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>Otto</td>
-        <td>Otto</td>
-        <td>Otto</td>
-      </tr>
+      <% @activities.each do |activity| %>
+        <tr>
+          <th scope="row"><%= activity.date.strftime("%b %d, %Y") %></th>
+          <td><%= activity.title %></td>
+          <td><%= activity.miles.round(2) %></td>
+          <td><%= activity.calories_burned.round(2) %></td>
+          <td><%= activity.gas_money_saved.round(2) %></td>
+          <td><%= activity.beers_banked.round(2) %></td>
+        </tr>
+      <% end %>
     </tbody>
   </table>
 </div>
