@@ -14,11 +14,11 @@ class SessionsController < ApplicationController
     end
     
     data = JSON.parse(response.body, symbolize_names: true)
-    # require 'pry'; binding.pry
+
     user = User.find_or_create_by(strava_id:data[:athlete][:id])
     user.update(username:data[:athlete][:username], firstname:data[:athlete][:firstname], lastname:data[:athlete][:lastname], photo_url:data[:athlete][:profile])
     session[:user_id] = user.id
-    session[:token] = data[:refresh_token]
+    session[:token] = data[:access_token]
     redirect_to '/dashboard'
   end
 
