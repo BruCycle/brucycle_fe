@@ -27,8 +27,6 @@ RSpec.describe 'the Activities index' do
       expect(page).to have_content('Calories Burned')
       expect(page).to have_content('Gas $ Saved')
       expect(page).to have_content('Beers Banked')
-
-      save_and_open_page
     end
   end
 end
