@@ -1,0 +1,14 @@
+{"data":
+  [{"id":null,
+    "type":"activity",
+    "attributes":
+     {"date":"2023-01-04T21:20:44.000Z", "title":"Afternoon Run", "miles":0.023125, "calories_burned":1.15, "gas_money_saved":0.0029, "beers_banked":0.0007}},
+   {"id":null,
+    "type":"activity",
+    "attributes":
+     {"date":"2023-01-04T21:10:00.000Z",
+      "title":"Afternoon Run",
+      "miles":3.0175,
+      "calories_burned":150.89999999999998,
+      "gas_money_saved":0.3896,
+      "beers_banked":0.0917}}]}
