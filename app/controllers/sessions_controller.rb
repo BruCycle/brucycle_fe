@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
     end
 
     data = JSON.parse(response.body, symbolize_names: true)
-    require 'pry'; binding.pry
+    # require 'pry'; binding.pry
     user = User.find_or_create_by(strava_id: data[:athlete][:id])
     user.update(photo_url: data[:athlete][:profile],
                 firstname: data[:athlete][:firstname],
