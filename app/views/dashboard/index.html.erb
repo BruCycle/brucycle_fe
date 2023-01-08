@@ -4,18 +4,15 @@
 
 <h4 style= "color:white"> Welcome,  <%= current_user.firstname%></h4>
 
-
-
 <% if current_user.photo_url%>
   <%= image_tag(current_user.photo_url, class: "rounded-circle", style: "margin-top: 8px;") %>
 <%end%>
 
+<br><br>
+
 <% if current_user.username %>
   <p style= "color:white"><%= current_user.username %></p>
 <% end %>
-
-<br><br>
-
 <%= link_to "Edit Username", "/user/edit", class: "btn btn-sm btn-outline-warning" %>
 <%= link_to "View All Activities", '/activities', method: :get, class: "btn btn-sm btn-outline-warning" %>
 
