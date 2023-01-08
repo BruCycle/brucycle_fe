@@ -23,6 +23,6 @@ class BrucycleService
   end
  
   def self.conn
-    Faraday.new(url: 'http://localhost:3000')
+    Faraday.new(url: ENV['be_base_url'])
   end
 end
