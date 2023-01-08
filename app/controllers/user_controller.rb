@@ -1,5 +1,7 @@
 class UserController < ApplicationController
-  def edit; end
+  def edit
+    return redirect_to '/' unless current_user
+  end
 
   def update 
     current_user.update(username: params[:username])
