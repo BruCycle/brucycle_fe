@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   get '/user/edit', to: 'user#edit'
   patch '/user', to: 'user#update'
+
+  get '/activities', to: 'activities#index'
 end

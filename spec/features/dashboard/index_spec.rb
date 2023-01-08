@@ -42,6 +42,18 @@ RSpec.describe 'the User Dashboard page' do
       expect(current_path).to eq('/dashboard')
     end
 
+    it 'has a button to redirect to activities' do
+      visit '/dashboard'
+
+      json = File.read('spec/fixtures/user_activities.json')
+      stub_request(:get, 'http://localhost:3000/api/v1/activities?')
+        .to_return(status: 200, body: json)
+
+      click_link 'View All Activities'
+
+      expect(current_path).to eq('/activities')
+    end
+
     describe 'as a user i can edit my username' do
       it 'has a button to edit username' do
         visit '/dashboard'

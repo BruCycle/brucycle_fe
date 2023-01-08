@@ -1,0 +1,30 @@
+<h3 style='color:white'><center><%= current_user.firstname %>'s Activities</center></h3>
+
+<%= link_to 'Dashboard', '/dashboard', class: 'btn btn-outline-warning btn-sm'%>
+
+<div  style="margin-left: 175px; margin-right: 175px;">
+  <table class="table text-white bg-dark" style="--bs-bg-opacity: .5;">
+    <thead class="thead-dark">
+      <tr class="text-warning">
+        <th>Date</th>
+        <th>Title</th>
+        <th>Miles</th>
+        <th>Calories Burned</th>
+        <th>Gas $ Saved</th>
+        <th>Beers Banked</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @activities.each do |activity| %>
+        <tr>
+          <th scope="row"><%= activity.date.strftime("%b %d, %Y") %></th>
+          <td><%= activity.title %></td>
+          <td><%= activity.miles.round(2) %></td>
+          <td><%= activity.calories_burned.round(2) %></td>
+          <td><%= activity.gas_money_saved %></td>
+          <td><%= activity.beers_banked %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

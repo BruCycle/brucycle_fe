@@ -2,34 +2,37 @@
 
 <center>
 
-<h8 style= "color:white"> Welcome,  <%= current_user.firstname%></h8>
-
-<br>
+<h4 style= "color:white"> Welcome,  <%= current_user.firstname%></h4>
 
 <% if current_user.photo_url%>
-  <%= image_tag(current_user.photo_url)%>
+  <%= image_tag(current_user.photo_url, class: "rounded-circle", style: "margin-top: 8px;") %>
 <%end%>
+
+<br><br>
 
 <% if current_user.username %>
   <p style= "color:white"><%= current_user.username %></p>
 <% end %>
+<%= link_to "Edit Username", "/user/edit", class: "btn btn-sm btn-outline-warning" %>
+<%= link_to "View All Activities", '/activities', method: :get, class: "btn btn-sm btn-outline-warning" %>
 
-<p> <%= link_to "Edit Username", "/user/edit", class: "btn btn-sm btn-warning" %> </p>
-<p> <%= link_to "Logout", '/logout', method: :delete, class: "btn btn-sm btn-warning" %> </p>
+<br><br>
 
-<br>
-
-<div id= "brubank" style= "color:white">
-<h5>BrüBank: <%= @user_stats.brubank %></h5>
-<%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-outline-warning"%>
+<div id= "brubank" style= "color:white; padding: 10px 10px 30px 10px; margin-top: 10px; margin-left: 800px; margin-right: 800px; --bs-bg-opacity: .7;" class="border border-light bg-dark rounded">
+<strong><h2>BrüBank: <%= @user_stats.brubank %></h2></strong>
+<%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-large btn-warning bubbly-button"%>
 </div>
 
+<br><br>
+
 <div id="lifetime-stats" style= "color:white">
-<h5>Lifetime Stats</h5>
+<h5><strong>Lifetime Stats</strong></h5>
 <p>Gas Money Saved: $<%= sprintf("%.2f", @user_stats.tot_gas_money_saved) %></p>
 <p>Calories Burned: <%= @user_stats.tot_calories_burned %></p>
 <p>Beers Consumed: <%= @user_stats.beers_drunk %></p>
 <p>Distance Biked: <%= @user_stats.tot_miles_biked %></p>
 </div>
 
+<br><br>
+<%= link_to "Logout", '/logout', method: :delete, class: "btn btn-sm btn-outline-warning" %>
 </center>
