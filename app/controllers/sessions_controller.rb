@@ -1,5 +1,12 @@
 class SessionsController < ApplicationController
   def create
+    return redirect_to '/' unless params[:code]
+
+    if params[:scope] != "read,activity:read_all"
+      flash[:alert] = 'We need access in order to bank your brus, bro'
+      return redirect_to '/'
+    end
+
     client_id = ENV['strava_client_id']
     client_secret = ENV['strava_client_secret']
     code = params[:code]
@@ -14,7 +21,7 @@ class SessionsController < ApplicationController
     end
 
     data = JSON.parse(response.body, symbolize_names: true)
-
+    # require 'pry'; binding.pry
     user = User.find_or_create_by(strava_id: data[:athlete][:id])
     user.update(photo_url: data[:athlete][:profile],
                 firstname: data[:athlete][:firstname],

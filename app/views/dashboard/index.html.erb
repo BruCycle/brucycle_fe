@@ -18,9 +18,17 @@
 
 <br><br>
 
-<div id= "brubank" style= "color:white; padding: 10px 10px 30px 10px; margin-top: 10px; margin-left: 800px; margin-right: 800px; --bs-bg-opacity: .7;" class="border border-light bg-dark rounded">
-<strong><h2>BrüBank: <%= @user_stats.brubank %></h2></strong>
-<%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-large btn-warning bubbly-button"%>
+<div class ='container-sm'>
+  <div id= "brubank" style= "color:white; --bs-bg-opacity: .7; padding: 10px 10px" class="border border-light bg-dark rounded">
+    <strong><h2>BrüBank: <%= @user_stats.brubank %></h2></strong>
+
+    <% if @user_stats.brubank < 1 %>
+      <%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-large btn-warning disabled" %>
+    <% else %>
+      <%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-large btn-warning" %>
+    <% end %>
+
+  </div>
 </div>
 
 <br><br>

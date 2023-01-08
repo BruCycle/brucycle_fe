@@ -37,6 +37,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Sets up javascript for bootstrap styling
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'faraday'
+gem 'figaro'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -44,8 +46,6 @@ group :development, :test do
   gem 'capybara'
   gem 'factory_bot_rails'
   gem 'faker'
-  gem 'faraday'
-  gem 'figaro'
   gem 'launchy'
   gem 'pry-rails'
   gem 'rspec_junit_formatter'
