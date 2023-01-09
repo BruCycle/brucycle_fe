@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     end
 
     data = StravaService.get_athlete_data(params[:code])
-    
+    # require 'pry'; binding.pry
     user = User.find_or_create_by(strava_uid: data[:athlete][:id])
 
     user.update(photo_url: data[:athlete][:profile],
