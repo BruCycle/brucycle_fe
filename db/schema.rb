@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_04_230500) do
+ActiveRecord::Schema.define(version: 2023_01_09_163249) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
-    t.integer "strava_id"
+    t.integer "strava_uid"
     t.string "username"
     t.string "firstname"
     t.string "lastname"
