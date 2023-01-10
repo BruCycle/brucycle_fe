@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
     return redirect_to '/' unless params[:code]
 
     if params[:scope] != "read,activity:read_all"
-      flash[:alert] = 'We need access in order to bank your brüs, you fuck'
+      flash[:alert] = 'We need access in order to bank your brüs, ya fuck'
       return redirect_to '/'
     end
 

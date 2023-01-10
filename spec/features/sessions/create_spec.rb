@@ -34,8 +34,11 @@ RSpec.describe 'the Sessions create' do
     allow(StravaService).to receive(:get_athlete_data).and_return(@user_data)
     
     @json = File.read('spec/fixtures/user_data.json')
+    @json2 = File.read('spec/fixtures/user_activities.json')
     stub_request(:get, 'http://localhost:3000/api/v1/user?')
       .to_return(status: 200, body: @json)
+    stub_request(:get, 'http://localhost:3000/api/v1/activities?')
+      .to_return(status: 200, body: @json2)
   end
 
   context 'successful login' do 
