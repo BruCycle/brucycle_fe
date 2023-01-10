@@ -13,8 +13,6 @@ class DashboardController < ApplicationController
       current_user.update(recent_beers: 1, last_beer: DateTime.now)
     end
 
-    # SafetyMailer.with(param: 'param').safety_email.deliver_now
-
     BrucycleService.drink_beer(current_user.strava_uid)
     redirect_to '/dashboard'
   end

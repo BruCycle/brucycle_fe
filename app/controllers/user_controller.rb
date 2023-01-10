@@ -4,8 +4,14 @@ class UserController < ApplicationController
   end
 
   def update 
-    current_user.update(username: params[:username])
+    current_user.update(user_params)
     
     redirect_to '/dashboard'
+  end
+
+  private
+
+  def user_params
+    params.permit(:username, :email)
   end
 end
