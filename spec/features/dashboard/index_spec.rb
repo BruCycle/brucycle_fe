@@ -5,7 +5,8 @@ RSpec.describe 'the User Dashboard page' do
     before(:each) do
       @json = File.read('spec/fixtures/user_data.json')
       @json2 = File.read('spec/fixtures/user_activities.json')
-      @user = create(:user)
+      
+      @user = create(:user, email: 'fake@gmail.com')
 
       stub_request(:get, 'http://localhost:3000/api/v1/user?')
         .to_return(status: 200, body: @json)
@@ -89,6 +90,38 @@ RSpec.describe 'the User Dashboard page' do
 
         expect(current_path).to eq('/')
         expect(page).to have_content('You have been successfully logged out')
+      end
+    end
+
+    describe 'sending safety emails' do 
+      it 'sends email if 5 beers drunk within an hour' do 
+        visit '/dashboard'
+        stub_request(:patch, 'http://localhost:3000/api/v1/user?drank=beer')
+          .to_return(status: 204)
+        
+        5.times do 
+          click_link 'I Drank a Beer'
+        end
+        mail = ActionMailer::Base.deliveries
+
+        expect(page).to have_content('Our records indicate you might be inebriated, please take an Uber home')
+        expect(mail.length).to eq(1)
+      end
+
+      it 'doesnt send email if no email is on file' do 
+        user = create(:user)
+        allow_any_instance_of(ApplicationController).to receive(:current_user)
+        .and_return(user)
+
+        visit '/dashboard'
+        stub_request(:patch, 'http://localhost:3000/api/v1/user?drank=beer')
+          .to_return(status: 204)
+        
+        5.times do 
+          click_link 'I Drank a Beer'
+        end
+
+        expect(ActionMailer::Base.deliveries).to eq([])
       end
     end
   end
