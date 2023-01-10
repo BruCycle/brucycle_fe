@@ -13,4 +13,6 @@ Rails.application.routes.draw do
   patch '/user', to: 'user#update'
 
   get '/activities', to: 'activities#index'
+
+  get '/brugorithm', to: 'brugorithm#index'
 end

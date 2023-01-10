@@ -6,7 +6,7 @@ RSpec.describe 'the Login page' do
       visit '/'
 
       expect(page).to have_content('BrüCycle')
-      expect(page).to have_content('Burn it to earn it')
+      expect(page).to have_content('Burn It To Earn It')
       expect(page).to have_link('Login with Strava',
                                 href: "http://www.strava.com/oauth/authorize?client_id=#{ENV['strava_client_id']}&response_type=code&redirect_uri=http://www.example.com/exchange_token&approval_prompt=force&scope=read,activity:read_all")
     end
