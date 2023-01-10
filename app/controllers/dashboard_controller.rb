@@ -8,7 +8,7 @@ class DashboardController < ApplicationController
   def update
     if current_user.last_beer && current_user.last_beer > (DateTime.now - 1.0 / 24)
       current_user.update(recent_beers: current_user.recent_beers + 1)
-      SafetyMailer.with(param: 'param').safety_email.deliver_now if current_user.recent_beers > 4
+      SafetyMailer.safety_email(current_user.email).deliver_now if current_user.recent_beers > 4
     else
       current_user.update(recent_beers: 1, last_beer: DateTime.now)
     end
