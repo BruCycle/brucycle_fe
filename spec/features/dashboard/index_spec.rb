@@ -53,6 +53,14 @@ RSpec.describe 'the User Dashboard page' do
       expect(current_path).to eq('/activities')
     end
 
+    it 'has a button to redirect to list of users to gift a beer' do
+      visit '/dashboard'
+
+      click_link 'Gift a Beer'
+
+      expect(current_path).to eq('/users')
+    end
+
     describe 'as a user i can edit my username' do
       it 'has a button to edit username' do
         visit '/dashboard'

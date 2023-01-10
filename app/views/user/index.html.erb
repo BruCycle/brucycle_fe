@@ -15,7 +15,7 @@
       <% @users.each do |user| %>
         <tr>
           <th scope="row"><%= user.username %></th>
-          <td>&nbsp;<%= link_to '🍻', '/user/update', class: 'btn btn-sm btn-outline-warning' %></td>
+          <td>&nbsp;<%= link_to '🍻', '/user', method: :patch, class: 'btn btn-sm btn-outline-warning' %></td>
         </tr>
       <% end %>
     </tbody>
