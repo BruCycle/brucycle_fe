@@ -28,11 +28,13 @@ RSpec.describe 'the User Dashboard page' do
       expect(page).to have_content('Distance Biked: 0.00375')
 
       expect(page).to have_link('I Drank a Beer')
-      expect(page).to have_content('BrüBank: 866.04')
+      expect(page).to have_content('BrüBank: 866')
     end
 
     it 'redirects user to dashboard after consuming and clicking drink_beer button' do
       visit '/dashboard'
+      stub_request(:patch, 'http://localhost:3000/api/v1/user?gift=beer')
+        .to_return(status: 204)
       stub_request(:patch, 'http://localhost:3000/api/v1/user?drank=beer')
         .to_return(status: 204)
 

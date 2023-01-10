@@ -24,6 +24,8 @@ RSpec.describe 'the User Index page' do
     end
 
     it 'can gift a beer' do
+      stub_request(:patch, 'http://localhost:3000/api/v1/user?gift=beer')
+        .to_return(status: 204)
       click_on '🍻'
       expect(current_path).to eq('/dashboard')
     end

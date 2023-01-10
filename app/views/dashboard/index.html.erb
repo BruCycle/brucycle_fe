@@ -21,7 +21,7 @@
 
 <div class ='container-sm'>
   <div id= "brubank" style= "color:white; --bs-bg-opacity: .7; padding: 10px 10px" class="border border-light bg-dark rounded">
-    <strong><h2>BrüBank: <%= @user_stats.brubank %></h2></strong>
+    <strong><h2>BrüBank: <%= @user_stats.brubank.to_i %></h2></strong>
 
     <% if @user_stats.brubank < 1 %>
       <%= link_to "I Drank a Beer", "/dashboard", method: :patch, class: "btn btn-large btn-warning disabled" %>

@@ -8,9 +8,13 @@ class UserController < ApplicationController
   end
 
   def update
-    if params[:username]
-      current_user.update(username: params[:username])
+    current_user.update(username: params[:username]) if params[:username]
+    
+    if params[:recipient] && BrucycleService.gift_beer(current_user.strava_uid, params[:recipient].to_i).body.include?('errors')
+      flash[:alert] = 'You don\'t have enough brüs, ya fuck'
+      redirect_to '/users'
+    else
+      redirect_to '/dashboard'
     end
-    redirect_to '/dashboard'
   end
 end
