@@ -3,12 +3,12 @@ class SessionsController < ApplicationController
     return redirect_to '/' unless params[:code]
 
     if params[:scope] != "read,activity:read_all"
-      flash[:alert] = 'We need access in order to bank your brus, bro'
+      flash[:alert] = 'We need access in order to bank your brüs, ya fuck'
       return redirect_to '/'
     end
 
     data = StravaService.get_athlete_data(params[:code])
-    # require 'pry'; binding.pry
+  
     user = User.find_or_create_by(strava_uid: data[:athlete][:id])
 
     user.update(photo_url: data[:athlete][:profile],
@@ -19,7 +19,7 @@ class SessionsController < ApplicationController
 
     session[:user_id] = user.id
     session[:token] = data[:access_token]
-
+    
     redirect_to '/dashboard'
   end
 
