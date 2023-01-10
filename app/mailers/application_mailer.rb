@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'fake@gmail.com'
+  default from: 'brucycle.cares@brucycle.com'
   layout 'mailer'
 end

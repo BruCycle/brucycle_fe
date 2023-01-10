@@ -95,15 +95,15 @@ Rails.application.configure do
   # Sets up emails
 
   config.action_mailer.delivery_method = :smtp
-  host = 'localhost:4000' # replace with your own url
+  host = 'https://brucycle-fe.herokuapp.com'
   config.action_mailer.default_url_options = { host: host, protocol: 'http' }
 
   # # SMTP settings for gmail
   config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
-    user_name: 'smculliton',
-    password: 'vkamfmmzjhmiaxag',
+    user_name: 'brucycle.cares',
+    password: 'obhlqoeohgehpazx',
     authentication: 'plain',
     enable_starttls_auto: true
   }
