@@ -1,7 +1,19 @@
 require 'rails_helper'
 
 RSpec.describe 'brugorithm page' do 
-  before :each do 
+  before :each do
+    @json = File.read('spec/fixtures/user_data.json')
+    @json2 = File.read('spec/fixtures/user_activities.json')
+    @user = create(:user)
+    allow_any_instance_of(ApplicationController).to receive(:current_user)
+        .and_return(@user)
+        
+    stub_request(:get, 'http://localhost:3000/api/v1/user?')
+        .to_return(status: 200, body: @json)
+
+    stub_request(:get, 'http://localhost:3000/api/v1/activities?')
+        .to_return(status: 200, body: @json2)
+        
     visit '/brugorithm'
   end
   describe 'contents' do 

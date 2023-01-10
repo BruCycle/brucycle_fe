@@ -4,10 +4,14 @@ RSpec.describe 'the User Dashboard page' do
   describe 'page has attributes' do
     before(:each) do
       @json = File.read('spec/fixtures/user_data.json')
+      @json2 = File.read('spec/fixtures/user_activities.json')
       @user = create(:user)
 
       stub_request(:get, 'http://localhost:3000/api/v1/user?')
         .to_return(status: 200, body: @json)
+
+      stub_request(:get, 'http://localhost:3000/api/v1/activities?')
+        .to_return(status: 200, body: @json2)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user)
         .and_return(@user)
@@ -24,7 +28,7 @@ RSpec.describe 'the User Dashboard page' do
       expect(page).to have_content('Distance Biked: 0.00375')
 
       expect(page).to have_link('I Drank a Beer')
-      expect(page).to have_content('BrüBank: 866.04')
+      expect(page).to have_content('BrüBank: 866')
     end
 
     it 'has a button to view brügorithm equation page' do 
@@ -37,6 +41,8 @@ RSpec.describe 'the User Dashboard page' do
 
     it 'redirects user to dashboard after consuming and clicking drink_beer button' do
       visit '/dashboard'
+      stub_request(:patch, 'http://localhost:3000/api/v1/user?gift=beer')
+        .to_return(status: 204)
       stub_request(:patch, 'http://localhost:3000/api/v1/user?drank=beer')
         .to_return(status: 204)
 
@@ -55,6 +61,14 @@ RSpec.describe 'the User Dashboard page' do
       click_link 'View All Activities'
 
       expect(current_path).to eq('/activities')
+    end
+
+    it 'has a button to redirect to list of users to gift a beer' do
+      visit '/dashboard'
+
+      click_link 'Gift a Beer'
+
+      expect(current_path).to eq('/users')
     end
 
     describe 'as a user i can edit my username' do
