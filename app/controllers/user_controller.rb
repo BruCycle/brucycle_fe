@@ -16,4 +16,10 @@ class UserController < ApplicationController
     else
     redirect_to '/dashboard'
   end
+
+  private
+
+  def user_params
+    params.permit(:username, :email)
+  end
 end
