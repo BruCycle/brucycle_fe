@@ -29,5 +29,14 @@ RSpec.describe 'the User Index page' do
       click_on '🍻'
       expect(current_path).to eq('/dashboard')
     end
+
+    it 'flashes a message if user does not have enough beers' do
+      stub_request(:patch, 'http://localhost:3000/api/v1/user?gift=beer')
+        .to_return(status: 400)
+      click_on '🍻'
+
+      expect(current_path).to eq('/users')
+      expect(page).to have_content('You don\'t have enough brüs, ya fuck')
+    end
   end
 end

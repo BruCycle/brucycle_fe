@@ -1,0 +1,16 @@
+{
+  "data": [
+    {
+      "id": null,
+      "type": "activity",
+      "attributes": {
+        "date": "2023-01-04T21:10:00.000Z",
+        "title": "Afternoon Run",
+        "miles": 0,
+        "calories_burned": 0,
+        "gas_money_saved": 0,
+        "beers_banked": 0
+      }
+    }
+  ]
+}
