@@ -15,6 +15,7 @@ class UserController < ApplicationController
       redirect_to '/users'
     else
     redirect_to '/dashboard'
+    end
   end
 
   private
