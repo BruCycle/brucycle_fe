@@ -64,13 +64,13 @@ RSpec.describe 'the User Dashboard page' do
       expect(current_path).to eq('/users')
     end
 
-    describe 'as a user i can edit my username' do
+    describe 'as a user i can edit my username and email' do
       it 'has a button to edit username' do
         visit '/dashboard'
 
-        expect(page).to have_link('Edit Username')
+        expect(page).to have_link('Edit Profile')
 
-        click_link "Edit Username"
+        click_link "Edit Profile"
 
         expect(current_path).to eq("/user/edit")
       end
