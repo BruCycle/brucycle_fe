@@ -14,7 +14,11 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <th scope="row"><%= user.username %></th>
+          <% if user.username.empty? %>
+            <td scope="row"><%= user.firstname %> <%= user.lastname %></td>
+          <% else %>
+            <td scope="row"><%= user.username %></td>
+          <% end %>
           <td>&nbsp;<%= link_to '🍻', "/user?recipient=#{user.strava_uid}", method: :patch, class: 'btn btn-sm btn-outline-warning' %></td>
         </tr>
       <% end %>
