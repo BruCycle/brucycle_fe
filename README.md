@@ -11,7 +11,9 @@
 ReadMe for Both FE and BE (https://github.com/BruCycle/readme)<br>
 
 ## Learning Goals
-- 
+- Use an external OAuth provider to authenticate users
+- Professional quality HTML and CSS, color palette is pleasing and suitable to the target audience
+- Application works in multiple browsers (Chrome, Safari, Firefox, etc)
 
 ## Technologies
 - Ruby 2.7.4
