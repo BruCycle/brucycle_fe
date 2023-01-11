@@ -12,4 +12,8 @@ class UserFacade
       Activity.new(activity[:attributes])
     end
   end
+
+  def self.drink_beer(strava_id)
+    BrucycleService.drink_beer(strava_id)
+  end
 end
