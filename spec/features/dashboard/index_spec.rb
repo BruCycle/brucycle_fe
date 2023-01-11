@@ -32,6 +32,14 @@ RSpec.describe 'the User Dashboard page' do
       expect(page).to have_content('BrüBank: 866')
     end
 
+    it 'has a button to view brügorithm equation page' do 
+      visit '/dashboard'
+
+      expect(page).to have_link('Brügorithm')
+      click_link('Brügorithm')
+      expect(current_path).to eq("/brugorithm")
+    end
+
     it 'redirects user to dashboard after consuming and clicking drink_beer button' do
       visit '/dashboard'
       stub_request(:patch, 'http://localhost:3000/api/v1/user?gift=beer')
