@@ -51,7 +51,9 @@ Brugorithm Page
 
 ## OAuth Handshake Explained
 
-<img width="1434" alt="Oauth Handshake" src="https://user-images.githubusercontent.com/108320490/212128732-dd4a7805-8f23-4d16-bde0-a2394d59e8f3.png">
+<img width="1440" alt="OAuth Handshake" src="https://user-images.githubusercontent.com/108320490/212129302-72f0ed79-189e-45d2-a50b-813b4511a913.png">
+
+
 
 
 
