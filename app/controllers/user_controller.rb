@@ -14,6 +14,7 @@ class UserController < ApplicationController
       flash[:alert] = 'You don\'t have enough brüs'
       redirect_to '/users'
     else
+      flash[:alert] = 'You gifted a beer!'
       redirect_to '/dashboard'
     end
   end
