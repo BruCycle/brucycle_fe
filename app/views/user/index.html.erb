@@ -14,7 +14,7 @@
     <tbody>
       <% @users.each do |user| %>
         <tr>
-          <% if user.username.empty? %>
+          <% if user.username.nil? || user.username.empty? %>
             <td scope="row"><%= user.firstname %> <%= user.lastname %></td>
           <% else %>
             <td scope="row"><%= user.username %></td>
