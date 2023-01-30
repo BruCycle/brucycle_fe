@@ -36,7 +36,7 @@ RSpec.describe 'the User Index page' do
       click_on '🍻'
 
       expect(current_path).to eq('/users')
-      expect(page).to have_content('You don\'t have enough brüs, ya fuck')
+      expect(page).to have_content('You don\'t have enough brüs')
     end
   end
 end

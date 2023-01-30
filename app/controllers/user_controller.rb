@@ -11,9 +11,10 @@ class UserController < ApplicationController
     current_user.update(user_params)
 
     if params[:recipient] && BrucycleService.gift_beer(current_user.strava_uid, params[:recipient].to_i).status == 400
-      flash[:alert] = 'You don\'t have enough brüs, ya fuck'
+      flash[:alert] = 'You don\'t have enough brüs'
       redirect_to '/users'
     else
+      flash[:alert] = 'You gifted a beer!'
       redirect_to '/dashboard'
     end
   end

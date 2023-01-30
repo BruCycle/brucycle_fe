@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
     redirect_to '/' unless params[:code]
 
     unless params[:scope] == 'read,activity:read_all'
-      flash[:alert] = 'We need access in order to bank your brüs, ya fuck'
+      flash[:alert] = 'We need access in order to bank your brüs'
       redirect_to '/'
     end
   end
