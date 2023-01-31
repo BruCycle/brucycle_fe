@@ -16,6 +16,8 @@ class UserController < ApplicationController
     elsif params[:recipient] && BrucycleService.gift_beer(current_user.strava_uid, params[:recipient].to_i).status != 400
       flash[:alert] = 'You gifted a beer!'
       redirect_to '/dashboard'
+    else
+      redirect_to '/dashboard'
     end
   end
 
